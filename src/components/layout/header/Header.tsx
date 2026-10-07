@@ -1,7 +1,26 @@
-
+import Logo from "./sections/logo/Logo";
+import Navigation from "./sections/navigation/Navigation";
+import Buttons from "./sections/buttons/Buttons";
+import Sidebar from "./sections/sidebar/Sidebar";
 
 export default function Header() {
     return (
-        <div>Header</div>
-    )
+        <header className="fixed top-0 left-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-xl">
+            <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-around px-5 sm:px-6 lg:px-8">
+                <Logo />
+
+                <div className="hidden lg:flex">
+                    <Navigation />
+                </div>
+
+                <div className="hidden lg:flex">
+                    <Buttons />
+                </div>
+
+                <div className="flex lg:hidden">
+                    <Sidebar />
+                </div>
+            </div>
+        </header>
+    );
 }
