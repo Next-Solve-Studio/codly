@@ -1,4 +1,6 @@
-import { IconType } from "react-icons";
+"use client";
+import { motion, useReducedMotion, type Variants } from "motion/react";
+import type { IconType } from "react-icons";
 import { FiZap, FiTrendingUp, FiCreditCard, FiSmartphone } from "react-icons/fi";
 
 type TypeCards = {
@@ -36,29 +38,67 @@ const cards: TypeCards[] = [
 ];
 
 export default function Method() {
+    const reduceMotion = useReducedMotion();
+
+    const fadeUp: Variants = {
+        hidden: { opacity: 0, y: reduceMotion ? 0 : 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: reduceMotion ? 0 : 35, scale: reduceMotion ? 1 : 0.96 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+        },
+    };
+
     return (
-        <section id="como-funciona" className="w-full bg-lavender/70 py-20 sm:py-24">
+        <section id="como-funciona" className="w-full scroll-mt-20 bg-lavender/70 py-20 sm:py-24">
             <div className="mx-auto w-full max-w-295 px-6 lg:px-10 xl:px-6">
 
-                <div className="max-w-2xl">
-                    <span className="text-xs font-bold uppercase tracking-[0.16em] text-primary">O método Codly</span>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ staggerChildren: reduceMotion ? 0 : 0.12 }}
+                    className="max-w-2xl">
+                    <motion.span variants={fadeUp} className="block text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                        O método Codly
+                    </motion.span>
 
-                    <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.035em] text-foreground sm:text-4xl">
+                    <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-extrabold tracking-[-0.035em] text-foreground sm:text-4xl">
                         Feito para encaixar na sua rotina
-                    </h2>
+                    </motion.h2>
 
-                    <p className="mt-4 max-w-xl text-sm leading-6 text-muted sm:text-base">
+                    <motion.p variants={fadeUp} className="mt-4 max-w-xl text-sm leading-6 text-muted sm:text-base">
                         Lições curtas, exercícios práticos e progresso visível — sem depender de cursos longos para começar a programar de verdade.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
-                <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.15 }}
+                    transition={{ staggerChildren: reduceMotion ? 0 : 0.12, delayChildren: 0.1 }}
+                    className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {cards.map((card) => {
                         const Icon = card.icon;
 
                         return (
-                            <article key={card.id} className="group rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_14px_35px_rgba(91,33,182,0.08)]">
-                                <div className="flex size-10 items-center justify-center rounded-xl bg-lavender text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+                            <motion.article
+                                key={card.id}
+                                variants={cardVariants}
+                                whileHover={reduceMotion ? undefined : { y: -6 }}
+                                transition={{ duration: 0.25 }}
+                                className="group rounded-2xl border border-border bg-surface p-6 hover:border-primary/20 hover:shadow-[0_14px_35px_rgba(91,33,182,0.08)]">
+                                <div className="flex size-10 items-center justify-center rounded-xl bg-lavender text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
                                     <Icon size={18} />
                                 </div>
 
@@ -69,10 +109,10 @@ export default function Method() {
                                 <p className="mt-2 text-sm leading-6 text-muted">
                                     {card.description}
                                 </p>
-                            </article>
+                            </motion.article>
                         );
                     })}
-                </div>
+                </motion.div>
 
             </div>
         </section>
