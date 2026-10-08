@@ -5,17 +5,21 @@ import LessonFlow from "./sections/lessonflow/LessonFlow"
 import Plans from "./sections/plans/Plans"
 import Trails from "./sections/trails/Trails"
 import KapyCTA from "./sections/kapyCTA/KapyCTA"
+import Loading from "../layout/loading/Loandig"
 
 export default function HomeMain() {
     return (
-        <main className="w-full overflow-x-hidden">
-            <Hero />
-            <Method />
-            <LessonFlow />
-            <Trails />
-            <Gamification />
-            <Plans />
-            <KapyCTA />
-        </main>
+        <>
+            <Loading />
+            <main className="w-full overflow-x-hidden">
+                <Hero />
+                <Method />
+                <LessonFlow />
+                <Trails />
+                <Gamification />
+                <Plans />
+                <KapyCTA />
+            </main>
+        </>
     )
 }

@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -30,35 +29,28 @@ export default function Hero() {
 
     return (
         <section className="relative flex w-full items-center justify-center overflow-hidden bg-background">
-            {/* Fundo com gradientes suaves */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_20%,rgba(124,58,237,0.07),transparent_45%),radial-gradient(ellipse_at_85%_75%,rgba(167,139,250,0.10),transparent_45%)]" />
 
-            {/* Grade decorativa discreta */}
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(124,58,237,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(124,58,237,0.035)_1px,transparent_1px)] bg-size-[64px_64px] mask-[linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]" />
 
-            {/* Iluminação animada */}
             <motion.div
                 aria-hidden="true"
                 animate={reduceMotion ? undefined : { x: [0, 60, 0], y: [0, -35, 0] }}
                 transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute -left-40 top-1/4 size-125 rounded-full bg-primary/5 blur-[110px]"
-            />
+                className="pointer-events-none absolute -left-40 top-1/4 size-125 rounded-full bg-primary/5 blur-[110px]" />
 
             <motion.div
                 aria-hidden="true"
                 animate={reduceMotion ? undefined : { x: [0, -50, 0], y: [0, 40, 0] }}
                 transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute -right-40 bottom-0 size-125 rounded-full bg-violet-300/15 blur-[110px]"
-            />
+                className="pointer-events-none absolute -right-40 bottom-0 size-125 rounded-full bg-violet-300/15 blur-[110px]" />
 
             <div className="relative z-10 mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-6xl items-center gap-10 px-5 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8 lg:px-8 lg:py-16">
-                {/* Conteúdo textual */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     transition={{ staggerChildren: reduceMotion ? 0 : 0.13 }}
-                    className="flex min-w-0 max-w-xl flex-col items-start"
-                >
+                    className="flex min-w-0 max-w-xl flex-col items-start">
                     <motion.div variants={fadeUp} className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-lavender px-3 py-1.5 text-xs font-semibold text-primary">
                         <AiOutlineThunderbolt size={15} />
                         <span>Nova trilha de estudos</span>
@@ -90,21 +82,18 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
 
-                {/* Kapy */}
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={fadeRight}
-                    className="relative flex items-center justify-center"
-                >
+                    className="relative flex items-center justify-center" >
                     <div className="absolute h-80 w-80 rounded-full bg-primary/10 blur-[75px]" />
 
                     <div className="relative">
                         <motion.div
                             animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            className="relative overflow-hidden rounded-4xl border border-border bg-surface p-2 shadow-[0_25px_70px_rgba(91,33,182,0.16)]"
-                        >
+                            className="relative overflow-hidden rounded-4xl border border-border bg-surface p-2 shadow-[0_25px_70px_rgba(91,33,182,0.16)]">
                             <Image
                                 src="/images/KapyFrontal.jpeg"
                                 width={420}
@@ -112,16 +101,14 @@ export default function Hero() {
                                 priority
                                 alt="Kapy, mascote da Codly"
                                 sizes="(max-width: 640px) 270px, (max-width: 1024px) 310px, 320px"
-                                className="h-auto w-67.5 rounded-[1.6rem] object-cover sm:w-77.5 lg:w-80"
-                            />
+                                className="h-auto w-67.5 rounded-[1.6rem] object-cover sm:w-77.5 lg:w-80" />
                         </motion.div>
 
                         <motion.div
                             initial={{ opacity: 0, y: reduceMotion ? 0 : 20, scale: reduceMotion ? 1 : 0.9 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             transition={{ duration: 0.65, delay: reduceMotion ? 0 : 0.9, ease: "easeOut" }}
-                            className="absolute -bottom-5 -right-4 flex items-center gap-3 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur-md sm:-right-7"
-                        >
+                            className="absolute -bottom-5 -right-4 flex items-center gap-3 rounded-2xl border border-border bg-surface/95 px-4 py-3 shadow-xl backdrop-blur-md sm:-right-7">
                             <span className="flex size-9 items-center justify-center rounded-xl bg-lavender text-lg">🔥</span>
 
                             <div>

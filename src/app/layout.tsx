@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/footer/Footer";
 
 const siteUrl = "https://codly.com.br";
 
@@ -114,6 +115,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main className="flex-1 pt-20">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
