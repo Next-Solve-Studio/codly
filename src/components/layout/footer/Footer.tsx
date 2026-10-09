@@ -29,7 +29,7 @@ const footerGroups: FooterGroup[] = [
         title: "Empresa",
         links: [
             { id: 4, name: "Sobre", href: "/sobre" },
-            { id: 5, name: "Contato", href: "/contato" },
+            { id: 5, name: "Contato", href: "/contact" },
             { id: 6, name: "Termos e privacidade", href: "/privacidade" },
         ],
     },
