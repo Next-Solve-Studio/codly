@@ -44,8 +44,10 @@ const footerGroups: FooterGroup[] = [
     },
 ];
 
-export default function Footer() {
+export default async function Footer() {
     "use cache";
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className="w-full border-t border-border bg-background">
             <div className="mx-auto w-full max-w-295 px-6 pt-14 pb-6 lg:px-10 xl:px-6">
@@ -83,7 +85,7 @@ export default function Footer() {
 
                 <div className="flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
                     <p className="text-xs leading-5 text-muted">
-                        © {new Date().getFullYear()} Codly Tecnologia Educacional LTDA. Todos os direitos reservados.
+                        © {currentYear} Codly Tecnologia Educacional LTDA. Todos os direitos reservados.
                     </p>
 
                     <p className="text-xs text-muted">
