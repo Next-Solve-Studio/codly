@@ -28,9 +28,9 @@ const footerGroups: FooterGroup[] = [
         id: "empresa",
         title: "Empresa",
         links: [
-            { id: 4, name: "Sobre", href: "/sobre" },
+            { id: 4, name: "Sobre", href: "/" },
             { id: 5, name: "Contato", href: "/contact" },
-            { id: 6, name: "Termos e privacidade", href: "/privacidade" },
+            { id: 6, name: "Termos e privacidade", href: "/" },
         ],
     },
     {
@@ -45,6 +45,7 @@ const footerGroups: FooterGroup[] = [
 ];
 
 export default function Footer() {
+    "use cache";
     return (
         <footer className="w-full border-t border-border bg-background">
             <div className="mx-auto w-full max-w-295 px-6 pt-14 pb-6 lg:px-10 xl:px-6">
