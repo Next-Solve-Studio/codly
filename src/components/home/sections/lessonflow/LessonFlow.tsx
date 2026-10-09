@@ -1,6 +1,8 @@
 "use client";
 
+import SectionInfo from "@/ui/SectionInfo";
 import { motion, useReducedMotion, type Variants } from "motion/react";
+import { FiBookOpen } from "react-icons/fi";
 
 type TypeCards = {
     id: number;
@@ -51,15 +53,15 @@ export default function LessonFlow() {
 
     return (
         <section id="formato-licao" className="relative w-full scroll-mt-20 overflow-hidden bg-background py-20 sm:py-24">
-            <div className="mx-auto w-full max-w-295 px-6 lg:px-10 xl:px-6">
+            <div className="mx-auto w-400 max-w-6xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} transition={{ staggerChildren: reduceMotion ? 0 : 0.12 }} className="max-w-2xl">
-                    <motion.span variants={fadeUp} className="block text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                        Formato da lição
-                    </motion.span>
-
-                    <motion.h2 variants={fadeUp} className="mt-3 max-w-xl text-3xl font-extrabold leading-tight tracking-[-0.035em] text-foreground sm:text-4xl">
-                        Do conceito ao desafio em uma sessão só
-                    </motion.h2>
+                    <motion.div variants={fadeUp} className="max-w-xl">
+                        <SectionInfo
+                            icon={<FiBookOpen size={13} />}
+                            subTitle="Formato da lição"
+                            title="Do conceito ao desafio em uma sessão só"
+                        />
+                    </motion.div>
 
                     <motion.p variants={fadeUp} className="mt-4 max-w-xl text-sm leading-6 text-muted sm:text-base">
                         Aprenda, pratique e evolua em cinco etapas simples, pensadas para transformar conhecimento em habilidade.

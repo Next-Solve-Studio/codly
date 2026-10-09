@@ -1,7 +1,8 @@
 "use client";
+import SectionInfo from "@/ui/SectionInfo";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import type { IconType } from "react-icons";
-import { FiZap, FiTrendingUp, FiCreditCard, FiSmartphone } from "react-icons/fi";
+import { FiZap, FiTrendingUp, FiCreditCard, FiSmartphone, FiLayers } from "react-icons/fi";
 
 type TypeCards = {
     id: number;
@@ -61,7 +62,7 @@ export default function Method() {
 
     return (
         <section id="como-funciona" className="w-full scroll-mt-20 bg-lavender/70 py-20 sm:py-24">
-            <div className="mx-auto w-full max-w-295 px-6 lg:px-10 xl:px-6">
+            <div className="mx-auto w-400 max-w-6xl px-5 py-20 sm:px-6 sm:py-24 lg:px-8">
 
                 <motion.div
                     initial="hidden"
@@ -69,13 +70,13 @@ export default function Method() {
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ staggerChildren: reduceMotion ? 0 : 0.12 }}
                     className="max-w-2xl">
-                    <motion.span variants={fadeUp} className="block text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                        O método Codly
-                    </motion.span>
-
-                    <motion.h2 variants={fadeUp} className="mt-3 text-3xl font-extrabold tracking-[-0.035em] text-foreground sm:text-4xl">
-                        Feito para encaixar na sua rotina
-                    </motion.h2>
+                    <motion.div variants={fadeUp}>
+                        <SectionInfo
+                            icon={<FiLayers size={13} />}
+                            subTitle="O método Codly"
+                            title="Feito para encaixar na sua rotina"
+                        />
+                    </motion.div>
 
                     <motion.p variants={fadeUp} className="mt-4 max-w-xl text-sm leading-6 text-muted sm:text-base">
                         Lições curtas, exercícios práticos e progresso visível — sem depender de cursos longos para começar a programar de verdade.
