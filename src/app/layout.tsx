@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Header from "@/components/layout/header/Header";
 import Footer from "@/components/layout/footer/Footer";
+import MessegerBot from "@/components/layout/messegerBot/MessegerBot";
 
 const siteUrl = "https://codly.com.br";
 
@@ -110,11 +111,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className="h-full antialiased">
-      <body className="flex min-h-full flex-col bg-background text-foreground">
+      <body className="flex min-h-screen flex-col bg-background text-foreground">
         <Header />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-16 sm:pt-18 lg:pt-20">
           {children}
         </main>
+        <MessegerBot />
         <Footer />
       </body>
     </html>
